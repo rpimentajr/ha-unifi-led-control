@@ -1,0 +1,189 @@
+###############################################################
+#
+# Home Assistant UniFi LED Control
+#
+# Package:
+#   UniFi LED Controller
+#
+# Originally developed for the UniFi E7.
+#
+# https://github.com/rpimentajr/ha-unifi-led-control
+#
+###############################################################
+
+###############################################################
+# INPUT SELECT
+###############################################################
+
+input_select:
+
+  unifi_led_color:
+
+    name: UniFi LED Color
+
+    icon: mdi:led-strip-variant
+
+    options:
+      - Off
+      - Blue
+      - Green
+      - Red
+      - White
+
+###############################################################
+# TEMPLATE SENSOR
+###############################################################
+
+template:
+
+  - sensor:
+
+      - name: UniFi LED Current Color
+
+        unique_id: unifi_led_current_color
+
+        icon: mdi:palette
+
+        state: >
+
+          {{ states('input_select.unifi_led_color') }}
+
+###############################################################
+# SCRIPTS
+###############################################################
+
+script:
+
+  #########################################################
+  # BLUE
+  #########################################################
+
+  unifi_led_blue:
+
+    alias: UniFi LED • Blue
+
+    sequence:
+
+      - service: shell_command.ligar_led_e7
+
+      - delay:
+
+          milliseconds: 250
+
+      - service: shell_command.led_e7_azul
+
+      - service: input_select.select_option
+
+        target:
+
+          entity_id: input_select.unifi_led_color
+
+        data:
+
+          option: Blue
+
+  #########################################################
+  # GREEN
+  #########################################################
+
+  unifi_led_green:
+
+    alias: UniFi LED • Green
+
+    sequence:
+
+      - service: shell_command.ligar_led_e7
+
+      - delay:
+
+          milliseconds: 250
+
+      - service: shell_command.led_e7_verde
+
+      - service: input_select.select_option
+
+        target:
+
+          entity_id: input_select.unifi_led_color
+
+        data:
+
+          option: Green
+
+  #########################################################
+  # RED
+  #########################################################
+
+  unifi_led_red:
+
+    alias: UniFi LED • Red
+
+    sequence:
+
+      - service: shell_command.ligar_led_e7
+
+      - delay:
+
+          milliseconds: 250
+
+      - service: shell_command.led_e7_vermelho
+
+      - service: input_select.select_option
+
+        target:
+
+          entity_id: input_select.unifi_led_color
+
+        data:
+
+          option: Red
+
+  #########################################################
+  # WHITE
+  #########################################################
+
+  unifi_led_white:
+
+    alias: UniFi LED • White
+
+    sequence:
+
+      - service: shell_command.ligar_led_e7
+
+      - delay:
+
+          milliseconds: 250
+
+      - service: shell_command.led_e7_branco
+
+      - service: input_select.select_option
+
+        target:
+
+          entity_id: input_select.unifi_led_color
+
+        data:
+
+          option: White
+
+  #########################################################
+  # OFF
+  #########################################################
+
+  unifi_led_off:
+
+    alias: UniFi LED • Off
+
+    sequence:
+
+      - service: shell_command.desligar_led_e7
+
+      - service: input_select.select_option
+
+        target:
+
+          entity_id: input_select.unifi_led_color
+
+        data:
+
+          option: Off
