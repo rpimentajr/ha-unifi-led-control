@@ -1,0 +1,17 @@
+{
+  "domain": "unifi_led",
+  "name": "UniFi LED",
+  "codeowners": [
+    "@rpimenta"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/rpimenta/ha-unifi-led-control",
+  "issue_tracker": "https://github.com/rpimenta/ha-unifi-led-control/issues",
+  "iot_class": "local_push",
+  "license": "MIT",
+  "loggers": [
+    "custom_components.unifi_led"
+  ],
+  "requirements": [],
+  "version": "1.0.0"
+}
