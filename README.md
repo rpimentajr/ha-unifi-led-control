@@ -188,32 +188,58 @@ Version 2.0
 ```
 
 ha-unifi-led-control/
-
-README.md
-
-LICENSE
-
-packages/
-
-shell_commands.yaml
-
-scripts.yaml
-
-automations.yaml
-
-blueprints/
-
-dashboard/
-
-examples/
-
-docs/
-
-images/
-
+│
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── CODE_OF_CONDUCT.md
+├── .gitignore
+│
+├── packages/
+│   └── unifi_led_control.yaml
+│
+├── shell_commands.yaml
+├── scripts.yaml
+├── automations.yaml
+│
+├── blueprints/
+│   └── automation/
+│       └── unifi/
+│           └── unifi_led_controller.yaml
+│
+├── dashboard/
+│   └── mushroom_dashboard.yaml
+│
+├── examples/
+│   ├── internet_status.yaml
+│   ├── alarm.yaml
+│   ├── presence.yaml
+│   ├── notifications.yaml
+│   └── scenes.yaml
+│
+├── docs/
+│   ├── installation.md
+│   ├── configuration.md
+│   ├── reverse_engineering.md
+│   ├── troubleshooting.md
+│   ├── faq.md
+│   └── supported_devices.md
+│
+├── images/
+│   ├── dashboard.png
+│   ├── topology.svg
+│   ├── internet_status.png
+│   ├── alarm.png
+│   └── e7.png
+│
+└── tools/
+    ├── backup.sh
+    ├── restore.sh
+    └── test_connection.sh
 ```
 
----
 
 ## Documentation
 
